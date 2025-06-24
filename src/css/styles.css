@@ -1,0 +1,183 @@
+:root {
+	/* Core Brand Colors */
+	--color-primary: #2c3e50;
+	--color-secondary: #e74c3c;
+	--color-accent: #f39c12;
+	/* Neutral Colors */
+	--color-neutral-light: #fdf6e3;
+	--color-neutral-dark: #333;
+	--color-bg: #ffffff;
+	--color-text: #111;
+	/* Typography */
+	--font-main: 'Segoe UI', sans-serif;
+	--font-heading: 'Segoe UI Semibold', sans-serif;
+	--font-size-base: 16px;
+	--font-size-sm: 14px;
+	--font-size-lg: 20px;
+	/* Spacing (you can scale them like a design system) */
+	--spacing-xs: 4px;
+	--spacing-sm: 8px;
+	--spacing-md: 16px;
+	--spacing-lg: 24px;
+	--spacing-xl: 32px;
+	/* Layout */
+	--border-radius: 8px;
+	--max-width: 1200px;
+	/* Effects */
+	--transition-speed: 0.3s;
+	--shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+	--shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+	/* Z-index layers */
+	--z-header: 1000;
+	--z-modal: 2000;
+	--z-overlay: 3000;
+	/* Shadows */
+	--shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+	--shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+	--shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+	--shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
+	--shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.2);
+}
+
+body, html, iframe {
+    padding: 0;
+    height: 100%;
+	margin: 0;
+	font-family: var(--font-main);
+	background-color: var(--color-neutral-light);
+}
+
+/* MAIN */
+/* Top Bar */
+.top-bar {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 20px; 
+  background-color: var(--color-neutral-light);
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  height: 40px;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Layout container */
+.box {
+  display: flex;
+  height: calc(100vh - 40px);
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 200px;
+  background-color: var(--color-neutral-dark);
+  color: white;
+  padding: 20px;
+  flex-shrink: 0;
+  overflow-y: auto;
+  margin: 0;
+}
+
+/* Main content */
+.main {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* Reusable spacing + typography */
+.section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+  background-color: var(--color-bg);
+  font-family: var(--font-main);
+  color: var(--color-text);
+}
+
+.heading {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-lg);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.contact-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-md);
+}
+
+.contact-card {
+  flex: 1;
+  min-width: 240px;
+  background-color: var(--color-neutral-light);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.contact-card h2 {
+  margin-top: 0;
+  font-size: var(--font-size-lg);
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+}
+
+.contact-card a {
+  color: var(--color-secondary);
+  text-decoration: none;
+}
+.contact-card a:hover {
+  text-decoration: underline;
+}
+
+.form {
+  flex: 2;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.form label {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--font-size-sm);
+  color: var(--color-primary);
+}
+
+.form input,
+.form textarea {
+  font-size: var(--font-size-base);
+  padding: var(--spacing-sm);
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+}
+
+.form input:focus,
+.form textarea:focus {
+  border-color: var(--color-accent);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(243, 156, 18, 0.2); /* accent color focus glow */
+}
+
+.form button {
+  align-self: flex-start;
+  background-color: var(--color-secondary);
+  color: white;
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-sm);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background var(--transition-speed);
+}
+
+.form button:hover {
+  background-color: #c0392b; /* darker version of secondary */
+}
