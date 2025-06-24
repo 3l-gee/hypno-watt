@@ -1,2 +1,2 @@
-# hypno-watt-
+# hypno-watt
 Static website
