@@ -10,36 +10,93 @@
     </head>
     <body>
       <div class="top-bar">
-        <div class="info">
+        <div class="actions">
           Contact: <a href="mailto:hello@example.com">hello@example.com</a>
         </div>
         <div class="actions">
          <a href="#">EN</a> / <a href="#">FR</a> / <a href="#">DE</a>
         </div>
+        <div class="actions">
+          <input type="text" id="search-input" placeholder="Search..." />
+          <button onclick="search()">Go</button>
+        </div>
       </div>
         
-      <div class="box">
+      <div class="page">
+
         <!-- Sidebar content-->
         <nav class="sidebar">
+            <div class="title">
+              <h1>Welcome</h1>
+              <p>the title of this website </p>
+            </div>
           <ul>
-            <li><button type="button" data-page="pages/home.html">Home</button></li>
-            <li><button type="button" data-page="pages/about.html">About</button></li>
-            <li><button type="button" data-page="pages/services.html">Services</button></li>
-            <li><button type="button" data-page="pages/gallery.html">Gallery</button></li>
-            <li><button type="button" data-page="pages/contact.html">Contact</button></li>
+            <li><button class="btn btn-sm" type="button" data-page="pages/home.html">Home</button></li>
+            <li><button class="btn btn-md" type="button" data-page="pages/about.html">About</button></li>
+            <li><button class="btn btn-lg" type="button" data-page="pages/services.html">Services</button></li>
+            <li><button class="btn" type="button" data-page="pages/gallery.html">Gallery</button></li>
+            <li><button class="btn" type="button" data-page="pages/contact.html">Contact</button></li>
+            <li><button class="btn" type="button" data-page="pages/praxis.html">Praxis</button></li>
           </ul>
         </nav>
 
+        <div class="geo-layer"></div> 
+
         <!-- Main content-->
         <main class="main">
-          <div class="content">
-            <h1>Welcome</h1>
-            <p>This is your main content area.</p>
+          <div class="home" id="home">
+            <div class="box-xs">
+              <h1>Heading 1</h1>
+              <h2>Heading 2</h2>
+              <h3>Heading 3</h3>
+              <h4>Heading 4</h4>
+              <h5>Heading 5</h5>
+              <h6>Heading 6</h6>
+              <p>Is education residence conveying so so. Suppose shyness say ten behaved morning had. Any unsatiable assistance compliment occasional too reasonably advantages. Unpleasing has ask acceptance partiality alteration understood two. Worth no tiled my at house added. Married he hearing am it totally removal. Remove but suffer wanted his lively length. Moonlight two applauded conveying end direction old principle but. Are expenses distance weddings perceive strongly who age domestic.</p> 
+            </div>
+            <div class="box-sm">
+              <h1>Heading 1</h1>
+              <h2>Heading 2</h2>
+              <h3>Heading 3</h3>
+              <h4>Heading 4</h4>
+              <h5>Heading 5</h5>
+              <h6>Heading 6</h6>
+              <p>Is education residence conveying so so. Suppose shyness say ten behaved morning had. Any unsatiable assistance compliment occasional too reasonably advantages. Unpleasing has ask acceptance partiality alteration understood two. Worth no tiled my at house added. Married he hearing am it totally removal. Remove but suffer wanted his lively length. Moonlight two applauded conveying end direction old principle but. Are expenses distance weddings perceive strongly who age domestic.</p> 
+            </div>
+            <div class="box-md">
+              <h1>Heading 1</h1>
+              <h2>Heading 2</h2>
+              <h3>Heading 3</h3>
+              <h4>Heading 4</h4>
+              <h5>Heading 5</h5>
+              <h6>Heading 6</h6>
+              <p>Is education residence conveying so so. Suppose shyness say ten behaved morning had. Any unsatiable assistance compliment occasional too reasonably advantages. Unpleasing has ask acceptance partiality alteration understood two. Worth no tiled my at house added. Married he hearing am it totally removal. Remove but suffer wanted his lively length. Moonlight two applauded conveying end direction old principle but. Are expenses distance weddings perceive strongly who age domestic.</p> 
+            </div>
+            <div class="box-lg">
+              <h1>Heading 1</h1>
+              <h2>Heading 2</h2>
+              <h3>Heading 3</h3>
+              <h4>Heading 4</h4>
+              <h5>Heading 5</h5>
+              <h6>Heading 6</h6>
+              <p>Is education residence conveying so so. Suppose shyness say ten behaved morning had. Any unsatiable assistance compliment occasional too reasonably advantages. Unpleasing has ask acceptance partiality alteration understood two. Worth no tiled my at house added. Married he hearing am it totally removal. Remove but suffer wanted his lively length. Moonlight two applauded conveying end direction old principle but. Are expenses distance weddings perceive strongly who age domestic.</p> 
+            </div>
+            <div class="box-xl">
+              <h1>Heading 1</h1>
+              <h2>Heading 2</h2>
+              <h3>Heading 3</h3>
+              <h4>Heading 4</h4>
+              <h5>Heading 5</h5>
+              <h6>Heading 6</h6>
+              <p>Is education residence conveying so so. Suppose shyness say ten behaved morning had. Any unsatiable assistance compliment occasional too reasonably advantages. Unpleasing has ask acceptance partiality alteration understood two. Worth no tiled my at house added. Married he hearing am it totally removal. Remove but suffer wanted his lively length. Moonlight two applauded conveying end direction old principle but. Are expenses distance weddings perceive strongly who age domestic.</p> 
+            </div>
           </div>
-            <iframe src="pages/about.html" style="display:none;"></iframe>
-            <iframe src="pages/services.html" style="display:none;"></iframe>
-            <iframe src="pages/gallery.html" style="display:none;"></iframe>
-            <iframe src="pages/contact.html" style="display:none;"></iframe>
+          <div class="home" id="other-page">
+          </div>
+          <!-- <iframe src="pages/about.html" style="display:none;"></iframe>
+          <iframe src="pages/services.html" style="display:none;"></iframe>
+          <iframe src="pages/gallery.html" style="display:none;"></iframe>
+          <iframe src="pages/contact.html" style="display:none;"></iframe> -->
         </main>
 
       </div>
