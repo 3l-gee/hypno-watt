@@ -1,12 +1,14 @@
 :root {
 	/* Core Brand Colors */
-	--color-primary: #2c3e50;
-	--color-secondary: #e74c3c;
-	--color-accent: #f39c12;
+	--color-primary: #5c51a0;
+	--color-secondary: #2c2c91;
+	--color-accent: #b48241;
 
 	/* Neutral Colors */
 	--color-neutral-light: #fdf6e3;
 	--color-neutral-dark: #333;
+
+  /* W & B*/
 	--color-text-white: #ffffff;
 	--color-text-black: #111;
 
@@ -110,39 +112,71 @@ body, html, iframe {
 
 /* Sidebar */
 .sidebar {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
   position: fixed;
   flex: 0;
   top: 0;
-  left: 0;
+  left: 0;  
   min-width: 250px;
-  width: 20%;
+  width: 25%;
   height: 100vh;
-  background-color: var(--color-neutral-dark);
+  justify-content: space-between;
+  background-color: var(--color-primary);
   color: var(--color-text-white);
   padding: var(--spacing-md);
   box-sizing: border-box;
-  overflow-y: auto;
+  overflow-y: visible;
   z-index: var(--z-modal);
   box-shadow: var(--shadow-md);
+  transition: left var(--transition-medium);
 }
 
-/* Title content */
+.sidebar.closed {
+  left: -100%;
+}
+
 .title {
-  padding: var(--spacing-md);
-  margin: var(--spacing-md);
-  background-color: var(--color-primary);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-md) var(--spacing-md) 2rem var(--spacing-md);
+  background: rgba(255 255 255 / 0.1); /* subtle translucent bg */
   color: var(--color-text-white);
   border-radius: var(--border-radius);
   border: var(--border-size) dashed var(--color-neutral-light);
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  font-family: var(--font-main);
+  user-select: none;
 }
+
+.title h1 {
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.05em;
+}
+
+.title p {
+  font-weight: 400;
+  font-size: 1.1rem;
+  opacity: 0.8;
+  margin-top: 0;
+}
+
 
 /* Main Content */
 .main {
-  margin-left: 250px;
-  margin-left: 20%;
+  margin-left: 25%;
   flex: 1;
   padding: var(--spacing-md);
   box-sizing: border-box;
+  transition: margin-left var(--transition-medium), margin-right var(--transition-medium);
+}
+
+.main.open {
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 /* Home content */
@@ -150,7 +184,6 @@ body, html, iframe {
   flex: 1;
   padding: var(--spacing-md);
   overflow-y: auto;
-  z-index: var(--z-content);
   position: relative;
   min-height: 100vh;
   overflow: hidden;
@@ -158,7 +191,6 @@ body, html, iframe {
 
 .other-page {
   flex: 1;
-  z-index: var(--z-content);
   padding: var(--spacing-md);
   overflow-y: auto;
   display: none;
@@ -169,8 +201,8 @@ body, html, iframe {
 .box-xs {
   padding: var(--spacing-xs);
   margin: var(--spacing-xs);
-  background-color: var(--color-accent);
   color: var(--color-text-black);
+  background-color: var(--color-text-white);
   border-radius: var(--border-radius-sm);
   border: var(--border-size) solid var(--color-neutral-light);
   font-size: var(--font-size-sm);
@@ -180,8 +212,8 @@ body, html, iframe {
 .box-sm {
   padding: var(--spacing-sm);
   margin: var(--spacing-sm);
-  background-color: var(--color-secondary);
-  color: var(--color-text-white);
+  color: var(--color-text-black);
+  background-color: var(--color-text-white);
   border-radius: var(--border-radius-sm);
   border: var(--border-size) solid var(--color-neutral-light);
   font-size: var(--font-size-base);
@@ -191,8 +223,8 @@ body, html, iframe {
 .box-md {
   padding: var(--spacing-md);
   margin: var(--spacing-md);
-  background-color: var(--color-secondary);
-  color: var(--color-text-white);
+  color: var(--color-text-black);
+  background-color: var(--color-text-white);
   border-radius: var(--border-radius-md);
   border: var(--border-size) solid var(--color-neutral-light);
   font-size: var(--font-size-base);
@@ -202,8 +234,8 @@ body, html, iframe {
 .box-lg {
   padding: var(--spacing-lg);
   margin: var(--spacing-lg);
-  background-color: var(--color-primary);
-  color: var(--color-text-white);
+  color: var(--color-text-black);
+  background-color: var(--color-text-white);
   border-radius: var(--border-radius-md);
   border: var(--border-size) solid var(--color-neutral-light);
   font-size: var(--font-size-lg);
@@ -213,8 +245,8 @@ body, html, iframe {
 .box-xl {
   padding: var(--spacing-xl);
   margin: var(--spacing-xl);
-  background-color: var(--color-primary);
-  color: var(--color-text-white);
+  color: var(--color-text-black);
+  background-color: var(--color-text-white);
   border-radius: var(--border-radius-lg);
   border: var(--border-size) solid var(--color-neutral-light);
   font-size: var(--font-size-xl);
@@ -262,31 +294,28 @@ body, html, iframe {
   font-family: var(--font-main);
   font-weight: 600;
   color: var(--color-text-white);
-  background-color: var(--color-primary);
-  border: none;
   border-radius: 100px;
   cursor: pointer;
   overflow: hidden;
-  transition: background-color var(--transition-medium), transform var(--transition-fast);
-  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(5px) contrast(50%);
+  transition:
+    background-color var(--transition-medium, 0.3s ease),
+    transform var(--transition-fast, 0.15s ease),
+    box-shadow var(--transition-fast, 0.15s ease);
+  box-shadow: var(--shadow-sm, 0 2px 6px rgba(0, 0, 0, 0.1));
+  background-color: var(--color-neutral-dark, rgba(255, 255, 255, 0.1));
 }
 
 /* Size Variants */
 .btn-sm {
-  padding: var(--spacing-sm);
-  margin: var(--spacing-xs);
   font-size: var(--font-size-sm);
 }
 
 .btn-md {
-  padding: var(--spacing-md);
-  margin: var(--spacing-xs);
   font-size: var(--font-size-base);
 }
 
 .btn-lg {
-  padding: var(--spacing-lg);
-  margin: var(--spacing-xs);
   font-size: var(--font-size-lg);
 }
 
@@ -298,27 +327,29 @@ body, html, iframe {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--color-secondary);
+  background: var(--color-light-overlay, white);
+   border: 4px #00000000 solid ;
   opacity: 0;
-  transition: opacity var(--transition-fast);
+  transition: opacity var(--transition-fast, 0.15s ease);
   z-index: -1;
 }
 
 /* Hover Effect */
 .btn:hover::after {
-  opacity: 0.15;
+  opacity: 0.08;
 }
 
 /* Active State */
 .btn:active {
   transform: scale(0.96);
-  box-shadow: var(--shadow-xs);
+  /* border: 4px var(--color-neutral-light) solid ; */
+  box-shadow: var(--shadow-xs, 0 1px 4px rgba(0, 0, 0, 0.08));
 }
 
 /* Hover State */
 .btn:hover {
-  background-color: var(--color-accent);
-  color: var(--color-text-black);
+  background-color: var(--color-accent-faded, rgba(255, 255, 255, 0.2));
+  box-shadow: var(--shadow-md, 0 4px 12px rgba(0, 0, 0, 0.15));
 }
 
 /* Text Styling */
@@ -327,42 +358,23 @@ body, html, iframe {
   z-index: 3;
 }
 
-
-/* Wave component */ 
-.wave-layer {
-  position: fixed;
-  inset: 0px;
-  --size: 50px;
-  --b: 10px;
-  --m: 0.5;
-  --p: calc(var(--m)*var(--size));
-  --R: calc(var(--size)*sqrt(var(--m)*var(--m) + 1) + var(--b)/2);
-  
-  --_g: #0000 calc(99% - var(--b)),#000 calc(101% - var(--b)) 99%,#0000 101%;
-  mask:
-    radial-gradient(var(--R) at left 50% bottom calc(-1*var(--p)),var(--_g)) 
-      calc(50% - 2*var(--size)) calc(50% - var(--size)/2 - var(--b)/2)/calc(4*var(--size)) calc(var(--size) + var(--b)),
-    radial-gradient(var(--R) at left 50% top    calc(-1*var(--p)),var(--_g)) 
-      50%                       calc(50% + var(--size)/2 + var(--b)/2)/calc(4*var(--size)) calc(var(--size) + var(--b));
-  background: linear-gradient(90deg,var(--color-neutral-dark),var(--color-neutral-dark));
-  height: 100vh;
+/* Icon component */
+.icon-link {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--color-text-white);
+  transition: color 0.2s ease;
+  text-decoration: none;
+  outline: none;
+  border: none;
 }
 
-.geo-layer {
-  position: fixed;
-  inset: 0;
-  background: linear-gradient(90deg, var(--color-neutral-dark), var(--color-neutral-dark));
-  height: 100vh;
+.icon-link:hover {
+  /* background-color: var(--color-accent-faded, rgba(255, 255, 255, 0.2)); */
+  box-shadow: var(--shadow-md, 0 4px 12px rgba(0, 0, 0, 0.15));
+}
 
-  --size: 100px;
-  --color: #fdf6e3; 
-
-  mask-image: repeating-linear-gradient(
-    135deg,
-    #000 0,
-    #000 calc(var(--size) / 2),
-    transparent calc(var(--size) / 2),
-    transparent var(--size)
-  );
-  mask-size: 100% 100%;
+.icon-link:active {
+  transform: scale(0.96);
+  box-shadow: var(--shadow-xs, 0 1px 4px rgba(0, 0, 0, 0.08));
 }
